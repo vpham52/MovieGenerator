@@ -48,7 +48,7 @@ namespace This_Is_Final
             movie.Genre = JArray.Parse(movie.APIResponse)[i]["genre"][0].ToString();
             movie.Rank = JArray.Parse(movie.APIResponse)[i]["rank"].ToString();
             movie.Rating = JArray.Parse(movie.APIResponse)[i]["rating"].ToString();
-
+            movie.Description = JArray.Parse(movie.APIResponse)[i]["description"].ToString();
 
 
             //returns everything we parsed

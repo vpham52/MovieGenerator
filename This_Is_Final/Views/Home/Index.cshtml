@@ -1,8 +1,12 @@
-﻿@model Movie
+﻿
+@model Movie
 
 @{
     ViewData["Title"] = "Home Page";
 }
+
+<!-- Add a reference to the jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
     body {
@@ -37,32 +41,8 @@
             transform: rotate(360deg);
         }
 
-    .movie-info {
-        margin-top: 50px;
-        padding: 20px;
-        background-color: #ECF0F1;
-        border-radius: 10px;
-        box-shadow: 2px 2px 5px #888888;
-    }
-
-        .movie-info h2 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #2980B9;
-        }
-
-        .movie-info p {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-    .quote {
-        font-style: italic;
-        font-size: 2rem;
-        margin-top: 50px;
-        text-align: center;
-        color: #E74C3C;
+    .hidden {
+        display: none;
     }
 </style>
 
@@ -70,27 +50,22 @@
     <h1>What Should You Watch Next?</h1>
     <p>Press the button to find out!</p>
 
-    <form method="get" action="@Url.Action("Index", "Movie")">
-        <button type="submit" class="btn-film">
+    <form method="get" action="@Url.Action("Index", "Movie")" id="movieForm">
+        <button type="button" class="btn-film" id="generateMovie">
             <i class="fa fa-film"></i>
         </button>
+        <p id="generatingMessage" class="hidden">Generating your next movie...</p>
     </form>
 </div>
 
-@if (Model != null)
-{
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3 movie-info">
-                <h2>@Model.Title</h2>
-                <p><strong>Year:</strong> @Model.Year</p>
-                <p><strong>Genre:</strong> @Model.Genre</p>
-                <p><strong>Rank:</strong> @Model.Rank</p>
-                <p><strong>Rating:</strong> @Model.Rating</p>
-            </div>
-        </div>
-    </div>
-
-    @*<p class="quote">"Movies can change the world." - Steven Spielberg</p>*@
-}
-
+<!-- Add JavaScript code to handle button click and form submission -->
+<script>
+    $(document).ready(function () {
+        $("#generateMovie").on("click", function () {
+            $("#generatingMessage").removeClass("hidden");
+            setTimeout(function () {
+                $('#movieForm').submit();
+            }, 1000);
+        });
+    });
+</script>
