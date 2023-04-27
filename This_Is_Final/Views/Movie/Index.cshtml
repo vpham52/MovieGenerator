@@ -147,14 +147,19 @@
         <div class="col-md-6 offset-md-3">
             <div class="card my-5">
                 <div class="card-header">
-                    <i class="fas fa-film movie-icon"></i> @Model.Title
+                    <i class="fas fa-film movie-icon"></i> 
+                    <a href="@Model.Trailer" style="text-decoration-line:none" target="_blank">@Model.Title</a>
                 </div>
                 <div class="card-body">
+                    <p><center><img src="@Model.Image"></center></p>
                     <p><strong>Year:</strong> @Model.Year</p>
                     <p><strong>Genre:</strong> @Model.Genre</p>
+                    <p><strong>Directed by:</strong> @Model.Director</p>
+                    <p><strong>Written by:</strong> @Model.Writers</p>
                     <p><strong>Rank:</strong> @Model.Rank</p>
                     <p><strong>Rating:</strong> @Model.Rating</p>
                     <p><strong>Description:</strong> @Model.Description</p>
+
                 </div>
                 <div class="text-center">
                     <form method="get" action="@Url.Action("Index", "Movie")">

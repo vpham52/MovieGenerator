@@ -18,8 +18,8 @@
         public string Description { get; set; }
         public string Trailer { get; set; }
         public string Genre { get; set; }
-        public List<string> Director { get; set; }
-        public List<string> Writers { get; set; }
+        public string Director { get; set; }
+        public string Writers { get; set; }
         public string Imdbid { get; set; }
 
 
