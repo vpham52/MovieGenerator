@@ -51,8 +51,8 @@ namespace This_Is_Final
             movie.Description = JArray.Parse(movie.APIResponse)[i]["description"].ToString();
             movie.Image = JArray.Parse(movie.APIResponse)[i]["image"].ToString();
             movie.Trailer = JArray.Parse(movie.APIResponse)[i]["trailer"].ToString();
-            movie.Director = JArray.Parse(movie.APIResponse)[i]["director"].ToString();
-            movie.Writers = JArray.Parse(movie.APIResponse)[i]["writers"].ToString();
+            movie.Director = JArray.Parse(movie.APIResponse)[i]["director"][0].ToString();
+            movie.Writers = JArray.Parse(movie.APIResponse)[i]["writers"][0].ToString();
 
 
 
